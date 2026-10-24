@@ -1,0 +1,53 @@
+# Build outputs
+*.exe
+*.dll
+*.pdb
+*.cache
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Local settings and secrets
+.env
+.env.*
+!.env.example
+appearance.json
+local-runtime.json
+settings.json
+tasks.json
+storyboard*.json
+video-prompt-profile.json*
+
+# Runtime data
+*.log
+backups/
+agent-runs/
+video-stack/object_info.json
+video-stack/workflows/studio_*.api.json
+
+# Generated media and model files
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.mp3
+*.wav
+*.safetensors
+*.ckpt
+*.onnx
+
+# QA captures and reports
+VideoStudio/qa/bin/
+VideoStudio/qa/**/*.png
+VideoStudio/qa/**/*.json
+VideoStudio/qa/**/*.txt
+
+# Release verification
+.verification/
+
+# Windows
+Thumbs.db
+Desktop.ini

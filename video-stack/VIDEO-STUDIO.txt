@@ -1,0 +1,45 @@
+视频工作台 · 画布优先
+
+打开桌面软件后，选择 Agent、视频模型，填写画面描述；可按预设添加参考图像、视频或音频。
+
+Agent（大模型）
+  Kimi API：在“连接”页填写自己的官方 Kimi API Key，点击加密保存。
+  “检查连接”只读取账户模型列表；“优化提示词”才会发起模型生成请求。
+  Qwen Agent / Codex / Kimi Code：使用 PATH 或显式配置中的相应 CLI。
+  也可通过各 Agent 的 video-studio MCP 工具操作；已打开的会话可能需要重新加载 MCP。
+
+参考素材
+  图像可作为首帧、关键帧或视觉参考，具体用途由当前模型和预设决定。
+  参考视频支持 MP4、MOV、WebM、MKV，最大 2 GB。
+  音频可用于配音、声线参考或对口型；不要使用无授权的素材。
+
+本地出片
+  1. 选择 HunyuanVideo 1.5、LTX-2.3、LTX-2.5、MiniMax H3 的文生/图生预设，
+     或 MuseTalk、CosyVoice 工具，设置分辨率、时长和种子。
+  2. 先准备当前镜头或全部镜头，确认模型、节点和工作流检查通过。
+  3. 点击“交接出片”：按需释放其他本地模型显存并启动 ComfyUI。
+  4. 生成中可暂停后续任务，或取消当前任务并跳过队列。
+  5. 等待 MP4 完成；在“成片”页查看。
+  Strata 是可选组件；配置后可在视频引擎停止时恢复，未配置不影响 ComfyUI 主流程。
+
+关闭窗口不会停止控制服务或当前视频任务。
+下载中的模型不能开始生成；模型最终文件齐全后自动变为可用。
+文件检查通过不等于已验证实际生成速度、画面质量或显存占用。
+
+共享 MCP 工具
+  video_status：状态、模型文件和 Agent 配置。
+  video_catalog：可用视频预设。
+  video_prepare：创建并检查指定任务（支持图像、视频、音频与提示词配置）。
+  video_import_workflow：导入 ComfyUI API 格式 JSON。
+  video_start_batch：交接并运行明确指定的工作流。
+  video_restore_strata：旧工作区的可选恢复操作；微信工作区不可用。
+  video_outputs：列出输出视频。
+实际工具名称以 Agent 工具列表为准。
+
+软件目录：仓库中的 VideoStudio
+控制服务和工作流：仓库中的 video-stack
+ComfyUI：由 VIDEO_STUDIO_COMFYUI 指定，模型与输出位于其 models/output 子目录
+用户设置：当前用户 LocalAppData\VideoStudio
+
+Kimi Key 使用 Windows 当前账户 DPAPI 加密；不写入 Agent 配置、日志或任务文件。
+当前支持官方中国与国际 Kimi API 地址；不接受重定向转发密钥。
